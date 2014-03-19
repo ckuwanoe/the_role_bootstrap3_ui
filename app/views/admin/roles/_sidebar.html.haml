@@ -16,6 +16,5 @@
             %i.icon-remove.glyphicon.glyphicon-remove
 
       %p.new
-        %a{href: new_admin_role_path}
-          %button.btn.btn-success = t('.new_role')
+        = button_to t('.new_role'), new_admin_role_path, class: 'btn btn-success'
            
