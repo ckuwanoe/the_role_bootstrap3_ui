@@ -8,7 +8,8 @@
     .panel-heading= t '.roles_list'
     .panel-body
   
-      %ol.tree= just_tree @roles
+      %ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_admin_roles_url } }
+        = build_server_tree(@roles, {:namespace => :admin})
 
       %p.new
         = button_to t('.new_role'), new_admin_role_path, class: 'btn btn-success'
