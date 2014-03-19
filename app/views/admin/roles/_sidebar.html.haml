@@ -8,8 +8,7 @@
     .panel-heading= t '.roles_list'
     .panel-body
   
-    %ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_roles_url } }
-      = sortable_tree @roles
+    %ol.tree= just_tree @roles
 
       %p.new
         = button_to t('.new_role'), new_admin_role_path, class: 'btn btn-success'
