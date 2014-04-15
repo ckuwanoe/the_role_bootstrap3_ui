@@ -8,7 +8,7 @@
     .panel-heading= t '.roles_list'
     .panel-body
   
-      %ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_roles_url } }
+      %ol.sortable_tree{ data: { max_levels: 5, rebuild_url: root_path } }
         = build_server_tree(@roles, {:namespace => :admin})
 
       %p.new= link_to t('.new_role'),  new_admin_role_path
