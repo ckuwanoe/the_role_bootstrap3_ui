@@ -8,9 +8,7 @@
 - content_for :role_main do
   - hidden = 'visibility:hidden'
   .panel.panel-primary
-    .panel-heading
-      Role Info (edit in place)
-      //= link_to t('.role_export'), role_export_admin_role_path(role), class: "btn btn-xs btn-warning pull-right"
+    .panel-heading Role Info (edit in place)
     .panel-body
       = form_for(role, url: change_admin_role_path(role), html: { class: "form-inline" } ) do |f|
         .row
@@ -42,10 +40,10 @@
         .row
           .col-md-12
             %h5.holder
-              = t '.role_description'
-              %span.a= role.description
+              = 'Parent:'
+              %span.a= role.parent_id
               %span.b{ style: hidden }
-                .form-group= f.collection_select :parent_id, Role.all, :id, :title, class: "form-control"
+                .form-group= f.collection_select :parent_id, Role.where.not(id: role.id), :id, :title, class: "form-control"
                 = yield(:role_update_btn_set)                     
 
   .panel.panel-primary
