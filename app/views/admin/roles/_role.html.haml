@@ -49,7 +49,7 @@
           .col-md-12
             %h5.holder
               = 'Report Form:'
-              %span.a= (role.collection.try(:name) || 'None')
+              %span.a= (role.collections.report_form.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= f.collection_select :collection_id, Collection.report_form, :id, :title, { include_blank: true }, class: "form-control"
                 = yield(:role_update_btn_set)                                     
