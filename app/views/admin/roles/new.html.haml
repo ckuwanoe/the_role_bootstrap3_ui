@@ -23,7 +23,10 @@
         %p= f.text_field :description, class: "form-control"
         .form-group
           %label= 'Parent Role'
-          = f.collection_select :parent_id, Role.all, :id, :title, { include_blank: true }, class: "form-control"     
+          = f.collection_select :parent_id, Role.all, :id, :title, { include_blank: true }, class: "form-control"    
+        .form-group
+          %label= 'Report Form'
+          = f.collection_select :collection_id, Collection.report_form, :id, :title, { include_blank: true }, class: "form-control"               
 
         - opts = options_for_select Role.all.map{|role| [ role.name, role.id ] }
         - unless opts.empty?
