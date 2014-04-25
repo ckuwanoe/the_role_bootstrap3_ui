@@ -13,7 +13,8 @@
 
     .panel-body
       = form_for(@role, url: admin_roles_path, role: :form) do |f|
-        %label= t('.name')
+        %label
+          Name of role (please use only lowercase letters, numbers and underscores - no spaces or special characters)
         %p= f.text_field :name, class: "form-control"
 
         %label= t('.title')
