@@ -127,3 +127,11 @@
         .form-group
           = text_field_tag :rule_name, '', class: "form-control", placeholder: t('.new_rule_placeholder')
         = submit_tag t('.create_rule'), class: "btn btn-success"
+  - if role.name != 'admin'
+    .panel.panel-danger
+      .panel-heading
+        Delete role
+      .panel-body
+        .delete
+          .btn-group
+            = button_to 'Delete Role', admin_role_path(role), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you wish to delete role?' }               
