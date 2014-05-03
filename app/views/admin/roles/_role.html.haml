@@ -48,6 +48,14 @@
         .row
           .col-md-12
             %h5.holder
+              = 'Dashboard Layout:'
+              %span.a= (role.dashboard_layout.try(:name) || 'None')
+              %span.b{ style: hidden }
+                .form-group= f.select :dashboard_layout_id, options_from_collection_for_select(DashboardLayout.order(:name), :id, :name, selected: role.dashboard_layout.try(:id)), { include_blank: true , class: "form-control"}
+                = yield(:role_update_btn_set)                 
+        .row
+          .col-md-12
+            %h5.holder
               = 'Report Form:'
               %span.a= (role.collections.report_form.first.try(:name) || 'None')
               %span.b{ style: hidden }
