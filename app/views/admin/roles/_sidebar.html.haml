@@ -9,6 +9,6 @@
       = t '.roles_list'
     .panel-body
   
-      %ol.tree= just_tree(@roles, {namespace: :admin, render_module: RenderRolesTreeHelperHelper})
+      %ol.tree= just_tree(Role.all.order('created_at ASC'), {namespace: :admin, render_module: RenderRolesTreeHelperHelper})
 
       %p.new= link_to t('.new_role'),  new_admin_role_path

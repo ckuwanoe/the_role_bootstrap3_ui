@@ -142,4 +142,4 @@
       .panel-body
         .delete
           .btn-group
-            = button_to 'Delete Role', admin_role_path(role), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you wish to delete role?' }               
+            = button_to 'Delete Role', admin_role_path(role), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you wish to delete role? If you delete this role, it and all children will be removed.' }               
