@@ -7,8 +7,9 @@
 
 - content_for :role_main do
   - hidden = 'visibility:hidden'
-  .panel.panel-primary
-    .panel-heading Role Info (edit in place)
+  .panel.panel-piluku
+    .panel-heading
+      %h3.panel-title Role Info (edit in place)
     .panel-body
       = form_for(role, url: change_admin_role_path(role), html: { class: "form-inline" } ) do |f|
         .row
@@ -52,7 +53,7 @@
               %span.a= (role.dashboard_layout.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= f.select :dashboard_layout_id, options_from_collection_for_select(DashboardLayout.order(:name), :id, :name, selected: role.dashboard_layout.try(:id)), { include_blank: true , class: "form-control"}
-                = yield(:role_update_btn_set)                 
+                = yield(:role_update_btn_set)
         .row
           .col-md-12
             %h5.holder
@@ -60,7 +61,7 @@
               %span.a= (role.collections.report_form.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.report_form, :id, :name, selected: role.collections.report_form.first.try(:id)), { include_blank: true , class: "form-control"}
-                = yield(:role_update_btn_set)  
+                = yield(:role_update_btn_set)
         .row
           .col-md-12
             %h5.holder
@@ -68,7 +69,7 @@
               %span.a= (role.collections.summary.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.summary, :id, :name,  selected: role.collections.summary.first.try(:id)), { include_blank: true , class: "form-control"}
-                = yield(:role_update_btn_set)     
+                = yield(:role_update_btn_set)
         .row
           .col-md-12
             %h5.holder
@@ -76,10 +77,11 @@
               %span.a= (role.collections.feed_email.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.feed_email, :id, :name,  selected: role.collections.feed_email.first.try(:id)), { include_blank: true , class: "form-control"}
-                = yield(:role_update_btn_set)                                                                 
+                = yield(:role_update_btn_set)
 
-  .panel.panel-primary
-    .panel-heading Role rules
+  .panel.panel-piluku
+    .panel-heading
+      %h3.panel-title Role rules
     .panel-body
       - role.to_hash.each_pair do |section, rules|
         .panel.panel-info
@@ -114,18 +116,20 @@
                           %li.divider
                           %li.error= link_to t('.delete_rule'), destroy_rule_admin_role_section_path(role, section, :name => rule), method: :delete, data: { confirm: t(".rule_delete_confirm") }
 
-  .panel.panel-success
+  .panel.panel-piluku
     .panel-heading
-      = t '.create_section'
+      %h3.panel-title
+        = t '.create_section'
     .panel-body
       = form_tag admin_role_sections_path(role), class: "form-inline"do |f|
         .form-group
           = text_field_tag :section_name, '', class: "form-control", placeholder: t('.new_section_placeholder')
         = submit_tag t('.create_section'), class: "btn btn-success"
 
-  .panel.panel-success
+  .panel.panel-piluku
     .panel-heading
-      = t '.create_rule'
+      %h3.panel-title
+        = t '.create_rule'
     .panel-body
       = form_tag create_rule_admin_role_sections_path(role), role: :form, class: "form-inline" do |f|
         .form-group
@@ -136,10 +140,10 @@
           = text_field_tag :rule_name, '', class: "form-control", placeholder: t('.new_rule_placeholder')
         = submit_tag t('.create_rule'), class: "btn btn-success"
   - if role.name != 'admin'
-    .panel.panel-danger
+    .panel.panel-piluku
       .panel-heading
-        Delete role
+        %h3.panel-title Delete role
       .panel-body
         .delete
           .btn-group
-            = button_to 'Delete Role', admin_role_path(role), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you wish to delete role? If you delete this role, it and all children will be removed.' }               
+            = button_to 'Delete Role', admin_role_path(role), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you wish to delete role? If you delete this role, it and all children will be removed.' }
