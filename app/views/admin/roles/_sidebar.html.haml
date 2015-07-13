@@ -1,14 +1,16 @@
 - content_for :role_sidebar do
-  .panel.panel-primary
-    .panel-heading Role Nav
+  .panel.panel-piluku
+    .panel-heading
+      %h3.panel-title Role Nav
     .panel-body
       %h4= link_to raw('&larr; Home'), admin_roles_path
 
-  .panel.panel-primary
+  .panel.panel-piluku
     .panel-heading
-      = t '.roles_list'
+      %h3.panel-title
+        = t '.roles_list'
     .panel-body
-  
+
       %ol.tree= just_tree(@roles, {namespace: :admin, render_module: RenderRolesTreeHelperHelper})
 
       %p.new= link_to t('.new_role'),  new_admin_role_path
