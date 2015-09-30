@@ -76,7 +76,7 @@
               = 'Report Summary Collection:'
               %span.a= (role.collections.external_data_summary.first.try(:name) || 'None')
               %span.b{ style: hidden }
-                .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.external_data_summary, :id, :name,  selected: role.external_data_summary.summary.first.try(:id)), { include_blank: true , class: "form-control"}
+                .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.external_data_summary, :id, :name,  selected: role.collections.external_data_summary.summary.first.try(:id)), { include_blank: true , class: "form-control"}
                 = yield(:role_update_btn_set)
         .row
           .col-md-12
