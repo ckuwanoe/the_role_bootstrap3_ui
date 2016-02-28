@@ -41,7 +41,7 @@
         .row
           .col-md-12
             %h5.holder
-              = 'Parent:'
+              = t("admin.roles.the_role_bootstrap3_ui.labels.parent.#{request.subdomain}", default: 'Parent:')
               %span.a= (role.parent.try(:title) || 'None')
               %span.b{ style: hidden }
                 .form-group= f.collection_select :parent_id, Role.where.not(id: role.id), :id, :title, {include_blank: 'None', selected: role.parent_id} ,{class: "form-control"}
@@ -49,7 +49,7 @@
         .row
           .col-md-12
             %h5.holder
-              = 'Dashboard Layout:'
+              = t("admin.roles.the_role_bootstrap3_ui.labels.dashboard_layout.#{request.subdomain}", default: 'Dashboard Layout:')
               %span.a= (role.dashboard_layout.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= f.select :dashboard_layout_id, options_from_collection_for_select(DashboardLayout.order(:name), :id, :name, selected: role.dashboard_layout.try(:id)), { include_blank: true , class: "form-control"}
@@ -57,15 +57,15 @@
         .row
           .col-md-12
             %h5.holder
-              = 'Report Form:'
+              = t("admin.roles.the_role_bootstrap3_ui.labels.report_form.#{request.subdomain}", default: 'Report Form:')
               %span.a= (role.collections.report_form.first.try(:name) || 'None')
               %span.b{ style: hidden }
-                .form-group= select_tag 'role[collection_ids][]', options_for_select(Collection.collection_types.map {|k,v| [t("admin.collections.collection_types.#{k}.#{request.subdomain}", default: k.humanize.capitalize), k]}), { include_blank: true , class: "form-control"}
+                .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.report_form, :id, :name, selected: role.collections.report_form.first.try(:id)), { include_blank: true , class: "form-control"}
                 = yield(:role_update_btn_set)
         .row
           .col-md-12
             %h5.holder
-              = 'Report Summary Collection:'
+              = t("admin.roles.the_role_bootstrap3_ui.labels.report_summary.#{request.subdomain}", default: 'Report Summary Collection:')
               %span.a= (role.collections.summary.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.summary, :id, :name,  selected: role.collections.summary.first.try(:id)), { include_blank: true , class: "form-control"}
@@ -73,7 +73,7 @@
         .row
           .col-md-12
             %h5.holder
-              = 'External Data Summary Collection:'
+              = t("admin.roles.the_role_bootstrap3_ui.labels.external_data_summary.#{request.subdomain}", default: 'External Data Summary Collection:')
               %span.a= (role.collections.external_data_summary.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.external_data_summary, :id, :name,  selected: role.collections.external_data_summary.first.try(:id)), { include_blank: true , class: "form-control"}
@@ -81,7 +81,7 @@
         .row
           .col-md-12
             %h5.holder
-              = 'Feed Email Collection:'
+              = t("admin.roles.the_role_bootstrap3_ui.labels.feed_email.#{request.subdomain}", default: 'Feed Email Collection:')
               %span.a= (role.collections.feed_email.first.try(:name) || 'None')
               %span.b{ style: hidden }
                 .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.feed_email, :id, :name,  selected: role.collections.feed_email.first.try(:id)), { include_blank: true , class: "form-control"}
