@@ -41,7 +41,7 @@
         .row
           .col-md-12
             %h5.holder
-              = t("#{request.subdomain}", default: 'Parent:')
+              = t("admin.roles.role.labels.parent.#{request.subdomain}", default: 'Parent:')
               %span.a= (role.parent.try(:title) || 'None')
               %span.b{ style: hidden }
                 .form-group= f.collection_select :parent_id, Role.where.not(id: role.id), :id, :title, {include_blank: 'None', selected: role.parent_id} ,{class: "form-control"}
