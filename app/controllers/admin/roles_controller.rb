@@ -116,13 +116,7 @@ class Admin::RolesController < ApplicationController
   end
 
   def role_params
-    params.require(:role).permit(*%w[
-      name
-      title
-      description
-      the_role
-      based_on_role
-    ])
+    params.require(:role).permit(:name, :title, :description, :the_role, :based_on_role, :parent_id, :dashboard_layout_id, :collection_ids => [])
   end
 
   def role_find
