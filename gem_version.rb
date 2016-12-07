@@ -1,3 +1,3 @@
-module TheRoleBootstrap3Ui
-  VERSION = "1.1"
+module TheRoleManagementPanel
+  VERSION = "3.5"
 end

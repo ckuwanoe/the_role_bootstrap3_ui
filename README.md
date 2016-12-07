@@ -1,62 +1,70 @@
-## TheRoleBootstrap3Ui
+<h2 align="center" class='center' style="text-align:center">
+  TheRole. Management Panel on Bootstrap 3
+</h2>
 
-Admin UI for gem TheRole
+<p align="center" class='center' style="text-align:center">
+  <b>Authorization gem for Ruby on Rails</b><br>
+  <i>with Management Panel</i>
+</p>
 
-Version based on Bootstrap3
+<p align="center" class='center' style="text-align:center">
+  <img src="https://raw.githubusercontent.com/TheRole/docs/master/images/the_role.png" alt="TheRole. Authorization gem for Ruby on Rails with Administrative interface">
+</p>
 
-### GUI
+<p align="center" class='center' style="text-align:center">
+  <b>Semantic. Flexible. Lightweight.</b>
+</p>
+
+<div align="center" class='center' style="text-align:center">
+TheRole: <a href="http://badge.fury.io/rb/the_role"><img src="https://badge.fury.io/rb/the_role.svg" alt="Gem Version" height="18"></a>
+API: <a href="http://badge.fury.io/rb/the_role_api"><img src="https://badge.fury.io/rb/the_role_api.svg" alt="Gem Version" height="18"></a>
+GUI: <a href="http://badge.fury.io/rb/the_role_management_panel"><img src="https://badge.fury.io/rb/the_role_management_panel.svg" alt="Gem Version" height="18"></a>
+<br>
+GUI: <a href="https://codeclimate.com/github/TheRole/TheRoleManagementPanelBootstrap3"><img src="https://codeclimate.com/github/TheRole/TheRoleManagementPanelBootstrap3/badges/gpa.svg" /></a>
+CI: <a href="https://travis-ci.org/TheRole/DummyApp"><img src="https://travis-ci.org/TheRole/DummyApp.svg?branch=master" alt="Build Status" height="18"></a>
+<a href="https://www.ruby-toolbox.com/categories/rails_authorization">ruby-toolbox</a>
+</div>
+
+<hr>
 
 <table>
 <tr>
-  <td>TheRole management web interface => localhost:3000/admin/roles</td>
+  <td>
+    <b>http://localhost:3000/admin/roles</b>
+  </td>
 </tr>
 <tr>
-  <td><img src="https://github.com/the-teacher/the_role/raw/master/pic.png" alt="TheRole"></td>
+  <td>
+    <img src="https://raw.githubusercontent.com/TheRole/docs/master/images/gui.png?2" alt="TheRole GUI">
+  </td>
 </tr>
 </table>
 
-## Installation
+<div align="center" class='center' style="text-align:center">
+  <a href="https://github.com/TheRole/docs/blob/master/TheRoleGuiInstallation.md">
+    <img src="https://raw.githubusercontent.com/TheRole/docs/master/images/install_gui.png" alt="TheRole GUI. Installation">
+  </a>
+</div>
 
-Gemfile
+<div align="center" class='center' style="text-align:center">
+  <a href="https://github.com/the-teacher/the_role">
+    <img src="https://raw.githubusercontent.com/TheRole/docs/master/images/main.png" alt="gem TheRole">
+  </a>
+</div>
 
-```ruby
-  gem 'the_role_bootstrap3_ui'
-```
+<hr>
 
-And then execute:
+### MIT License
 
-```sh
-  $ bundle
-```
+[MIT License](https://github.com/TheRole/docs/blob/master/LICENSE.md)
+Copyright (c) 2012-2015 [Ilya N.Zykin](https://github.com/the-teacher)
 
-Or install it yourself as:
+#### Maintainers
 
-```sh
-  $ gem install the_role_bootstrap3_ui
-```
+[@the-teacher](https://github.com/the-teacher),
+[@sedx](https://github.com/sedx),
+[@seuros](https://github.com/seuros)
 
-## Usage
+#### Contributors
 
-### Assets and Bootstrap
-
-**application.css**
-
-```
-//= require bootstrap
-```
-
-**application.js**
-
-```
-//= require jquery
-//= require jquery_ujs
-
-//= require bootstrap
-//= require the_role_editinplace
-```
-
-## MIT
-
-zykin-ilya@ya.ru
-
-2014
+@igmarin, @doabit, @linjunpop, @egb3
