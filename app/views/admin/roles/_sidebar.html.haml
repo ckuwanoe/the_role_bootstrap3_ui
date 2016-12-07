@@ -13,22 +13,10 @@
     .panel-heading
 
       %h3.panel-title
-        = t '.roles_list'
+        = t :roles_list, scope: t_scope
     .panel-body
 
       %ol#role-tree.tree= just_tree(@roles, {namespace: :admin, render_module: RenderRolesTreeHelperHelper})
-
-      %p.new= link_to t('.new_role'),  new_admin_role_path, class: "btn btn-primary"
-
-      = t :roles_list, scope: t_scope
-    .panel-body
-
-      - (@roles || Role.all).each do |role|
-        %p
-          = link_to role.title, edit_admin_role_url(role)
-          (#{role.users.count})
-          = link_to admin_role_url(role), method: :delete, title: role.title, data: { confirm: t(:delete_role_confirm, scope: t_scope) }, class: :delete do
-            %i.icon-remove.glyphicon.glyphicon-remove
 
       %hr
 
@@ -40,13 +28,13 @@
         .panel-heading
           = t(:roles_export, scope: t_scope)
         .panel-body
-          = link_to t(:roles_export, scope: t_scope), export_admin_admin_roles_path, class: "btn btn-xs btn-warning"
+          = link_to t(:roles_export, scope: t_scope), export_admin_roles_path, class: "btn btn-xs btn-warning"
 
       .panel.panel-default
         .panel-heading
           =t(:roles_import, scope: t_scope)
         .panel-body
-          = form_tag import_admin_admin_roles_path, multipart: true, method: :put do
+          = form_tag import_admin_roles_path, multipart: true, method: :put do
             .form-group
               = file_field_tag :roles
             .form-group

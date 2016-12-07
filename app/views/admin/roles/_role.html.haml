@@ -15,10 +15,10 @@
       %h3.panel-title 
         = t(:role_info, scope: t_scope) 
         (edit in place)
-      = link_to t(:role_export, scope: t_scope), role_export_admin_admin_role_path(role), class: "btn btn-xs btn-warning pull-right"
+      = link_to t(:role_export, scope: t_scope), role_export_admin_role_path(role), class: "btn btn-xs btn-warning pull-right"
 
     .panel-body
-      = form_for(role, url: change_admin_admin_role_path(role), html: { class: "form-inline" } ) do |f|
+      = form_for(role, url: change_admin_role_path(role), html: { class: "form-inline" } ) do |f|
         .row
           .col-md-12
             %h3.holder{ style: 'margin: 3px' }

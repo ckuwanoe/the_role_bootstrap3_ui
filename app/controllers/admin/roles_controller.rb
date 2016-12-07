@@ -6,10 +6,10 @@ class Admin::RolesController < ApplicationController
   before_filter :role_required
 
   before_filter :role_find,      only: [:edit, :update, :destroy, :change, :role_export]
+  before_filter :roles_list,      only: [:edit, :index, :new]
   before_filter :owner_required, only: [:edit, :update, :destroy, :change]
 
   def index
-    @roles = Role.order('created_at ASC')
   end
 
   def new
@@ -130,6 +130,10 @@ class Admin::RolesController < ApplicationController
 
     # TheRole: You have to define object for ownership check
     for_ownership_check(@role)
+  end
+
+  def roles_list
+    @roles = Role.all.order('created_at ASC')
   end
 
   def redirect_to_edit flash = {}
