@@ -12,8 +12,8 @@
   .panel.panel-piluku
     .panel-heading
 
-      %h3.panel-title 
-        = t(:role_info, scope: t_scope) 
+      %h3.panel-title
+        = t(:role_info, scope: t_scope)
         (edit in place)
       = link_to t(:role_export, scope: t_scope), role_export_admin_role_path(role), class: "btn btn-xs btn-warning pull-right"
 
@@ -76,14 +76,6 @@
         .row
           .col-md-12
             %h5.holder
-              = t("admin.roles.role.labels.external_data_summary.#{request.subdomain}", default: 'External Data Summary Collection:')
-              %span.a= (role.collections.external_data_summary.first.try(:name) || 'None')
-              %span.b{ style: hidden }
-                .form-group= select_tag 'role[collection_ids][]', options_from_collection_for_select(Collection.external_data_summary, :id, :name,  selected: role.collections.external_data_summary.first.try(:id)), { include_blank: true , class: "form-control"}
-                = yield(:role_update_btn_set)
-        .row
-          .col-md-12
-            %h5.holder
               = t("admin.roles.role.labels.feed_email.#{request.subdomain}", default: 'Feed Email Collection:')
               %span.a= (role.collections.feed_email.first.try(:name) || 'None')
               %span.b{ style: hidden }
@@ -92,7 +84,7 @@
 
   .panel.panel-piluku
     .panel-heading
-      %h3.panel-title 
+      %h3.panel-title
         = t(:role_rules, scope: t_scope)
 
     .panel-body
